@@ -1,0 +1,30 @@
+\nc{pdftk}
+Manipulate PDFs easily.
+\begin{itemize}[label={-}, leftmargin=*]
+    \item Combine several files in one.\\
+    {\tt \$ pdftk <files.pdf> cat output <output.pdf>}
+    
+    \item Combine several files in one by shuffling one from the first, another from the second...).\\
+    {\tt \$ pdftk <files.pdf> shuffle output <output.pdf>}
+    
+    \item Split file into several ones:
+    
+    (Taking only the odd ones.)\\
+    {\tt \$ pdftk <input.pdf> cat 1-endodd output <output.pdf>}\\
+    (Taking only the even ones.)\\
+    {\tt \$ pdftk <input.pdf> cat 1-endeven output <output.pdf>}
+    
+    \item Select only several pages.\\
+    {\tt \$ pdftk <input.pdf> cat 1-2 4 output <output.pdf>}
+    
+    \item Change page order.\\
+    {\tt \$ pdftk <input.pdf> cat end-1 output <output.pdf>}
+    
+    \item Rotate pages.\\
+    {\tt \$ pdftk <input.pdf> cat 1-endeast output <output.pdf>}
+    
+    \item Encrypt document.\\
+    {\tt \$ pdftk <input.pdf> output <output.pdf> user\_pw "user-password"}
+    
+
+\end{itemize}    

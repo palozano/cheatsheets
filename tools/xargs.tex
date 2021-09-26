@@ -1,0 +1,22 @@
+\nc{xargs}
+Execute a command with piped arguments coming from standard input, i.e., another command, a file, etc. The input is treated as a single block of text and split into separate pieces on spaces, tabs, newlines and end-of-file.
+    
+\begin{itemize}[label={-}, leftmargin=*]
+    \item Find all file names ending with \emph{.pdf}, then remove them.\\
+    {\tt \$ find -name \textbackslash*.pdf | xargs rm}
+    
+    \item Handle filenames with `\textbackslash n' and skips `*.pdf' directories. The xargs(1) flag `-r' is equivalent to `--no-run-if-empty', and `-n' will group execution by 10 files.\\
+    {\tt \$ find -name \textbackslash*.pdf -type f -print0 | xargs -0 -r -n 10 rm}
+    
+    \item If file names may contains spaces, use the xargs(1) flag `-I' and its proceeding argument to specify the filename placeholder.\\
+    {\tt \$ find -name \textbackslash*.pdf | xargs -I \{\} rm -r `\{\}'}
+    
+    \item Print a list of files in the format of `*FILE='. The use of xargs(1) flag `-n' here with its argument of `1' means to process the files one-by-one.\\
+    {\tt \$ find -name \textbackslash*.pdf | xargs -I \{\} -n 1 echo `\&\{\}='}
+    
+    \item Group words by three in a string.\\
+    {\tt \$ seq 1 10 | xargs -n 3}
+    
+    \item Show every .pdf like:	{\&toto.pdf=}, where -nX means X files at a time.
+    {\tt \$ find -name *.pdf | xargs -I \{\} -n1 echo `\&\{\}='}
+\end{itemize}

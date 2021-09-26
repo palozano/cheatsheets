@@ -1,0 +1,20 @@
+\nc{vi}
+Stream text editor to do amazing things very quickly.
+\begin{itemize}[label={-}, leftmargin=*]
+    \item Substitute the n-th occurrence of a string in file.\\ 
+    ({\tt g} for all, {\tt ng} for n-th to all; {\tt l,m} to match line range).\\
+    {\tt \$ sed `[l,m] s/match/replace/[n,ng,g]' <file>}
+    
+    \item Delete from n-th line to last.\\
+    {\tt \$ sed `n,\$d' <file>}
+    
+    \item Delete pattern matching line.\\
+    {\tt \$ sed `<pattern>/d' <file>}
+    
+    \item Change text in several files.\\
+    {\tt \$ find <folder> -type f -name <name-pattern> -exec sed -i `s/<old>/<new>/g' \{\} \textbackslash;}
+    
+    {\tt \$ grep -r -l <pattern> * | xargs sed -i `s/<old>/<new>/g'}
+    
+    
+\end{itemize}    

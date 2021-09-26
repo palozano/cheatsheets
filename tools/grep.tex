@@ -1,0 +1,25 @@
+\nc{grep}
+Search patterns in files, using the following structure {\tt \$ grep [options] pattern [files]}.
+\begin{itemize}[label={-}, leftmargin=*]
+    \item Case-insensitive search.\\
+    {\tt \$ grep -i <pattern> <file>}
+    
+    \item Display the line where the match was made.\\
+    {\tt \$ grep -n <pattern> <file>}\\
+    Display the file with the match.\\
+    {\tt \$ grep -l <pattern> <file>}\\
+    Display the count.\\
+    {\tt \$ grep -c <pattern> <file>}\\
+    
+    \item Check for the whole word.\\
+    {\tt \$ grep -w <pattern> <file>}
+    
+    \item Invert the search pattern.\\
+    {\tt \$ grep -v <pattern> <file>}
+    
+    \item Search for file-stored patterns.\\
+    {\tt \$ grep -f <pattern-file> <file>}
+    
+    \item Print n lines before [A], after [B] or both [C].\\
+    {\tt \$ grep -[A,B,C]n <pattern> <file>}
+\end{itemize}    

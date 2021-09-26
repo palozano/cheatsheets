@@ -1,0 +1,38 @@
+\nc{awk}
+Pattern-directed scanning and processing language.
+
+\begin{itemize}[label={-}, leftmargin=*]
+\addtolength{\itemsep}{-2pt}
+\item Print every line in file.\\
+{\tt \$ awk `{print}' file}
+
+\item Print the line matching the pattern.\\
+{\tt \$ awk `/pattern/ {print}' file}
+
+\item Print the 3rd column and the record number.\\
+{\tt \$ awk `{print NR,\$3}' file}
+\item Print lines with more than 10 characters.\\
+{\tt \$ awk `length(\$0) > 10' file}
+
+\item Select a different column-separator.\\
+{\tt \$ awk -F: `{print \$1}' <file>}
+
+\item Concatenate several commands.\\
+{\tt \$ echo "Hi Tom" | awk `{\$2="Adam"; print \$0}'}
+
+\item Count and print matched pattern.\\
+{\tt \$ awk `/a/{++cnt} END {print "Count=", cnt}' <file>}
+
+\item The commands can be stored in a file.\\
+{\tt \$ awk -f <command-file> <file>}
+
+\item Pre- and post-process with {\tt awk}.\\
+{\tt \$ awk `BEGIN{print "Start"} {print \$0} END{print "End"}' file}
+
+\item You can define you own variables.\\
+{\tt \$ awk `myVar="Hello" print myVar} file\\
+But some variable names have special meanings.\\
+{\tt CONVFMT, FS, NF, NR, NFR, FILENAME, RS, OFS, ORS...}
+
+\item There are control structures (if, for, while...), formatting, user-defined functions...\\
+\end{itemize}

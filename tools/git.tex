@@ -1,0 +1,118 @@
+\nc{Git}
+Resources: man-pages, {\tt\href{www.git-scm.com}{git-scm.com}}.\\
+Pull from repo before pushing to it.
+
+\begin{itemize}[label={-}, leftmargin=*]
+
+\item Stage file or all (-A by default) files in directory.\\
+{\tt \$ git add [<file>] [<dir>]}
+
+\item Stage previously tracked files (update).\\
+{\tt \$ git add -u}
+
+\item Push branch to remote.\\
+{\tt \$ git push -u origin <branch-name>}
+
+\hr
+
+\item Show log with changes.\\
+{\tt \$ git log --stats}
+
+\item Show differences between commits.\\
+{\tt \$ git diff [<commit-1>] [<commit-2>]}
+
+\hr
+
+\item Restore a file to the last commit's state.\\
+{\tt \$ git checkout <file>}
+
+\item Rewrite last commit's message.\\
+{\tt \$ git commit --amend [-m, --no-edit]}
+
+\item Copy commit from one branch to current.\\
+{\tt \$ git cherry-pick <commit>}
+
+\hr 
+
+\item Revert changes by making new commits (doesn't change Git history).\\
+{\tt \$ git revert <commit>}
+
+\item Remove file from staging area.\\
+{\tt \$ git reset <file>}
+
+\item Remove all staged files, i.e., reset to previous commit.\\
+{\tt \$ git reset}
+
+\item Remove commit, leaving changes in the working directory.\\
+{\tt \$ git reset <commit>}
+
+\item Remove commit, but leave changes in the staging directory.\\
+{\tt \$ git reset --soft <commit>}
+
+\item Remove commit, tacked files revert to the state in the commit.\\
+{\tt \$ git reset --hard <commit>}
+
+\hr 
+
+\item Remove untracked files (-f) and directories (-d).\\
+{\tt \$ git clean -df}
+
+\item Show Git command log.\\
+{\tt \$ git reflog}
+
+\item To undo hard-reset changes:\\
+{\tt \$ git checkout <commmit>}\\
+(You enter {\tt HEAD}-detached state.)
+
+{\tt \$ git branch <name>}\\
+(The changes are stored in the branch {\tt <name>}.)
+
+{\tt \$ git branch master}\\
+(Go back to master branch.)
+
+\hr
+
+\item Merge (combine) changes from branch into the current one.\\
+{\tt \$ git merge <branch-name>}
+
+\item Merge all commits from {\tt <branch>} into one commit.\\
+{\tt \$ git merge --squash <branch>}
+
+\item Show merged branches.\\
+{\tt \$ git branch --merged}
+
+\item Delete (local) branch.\\
+{\tt \$ git branch -d <branch-name>}
+
+Delete (remote, but locally-deleted) branch.\\
+{\tt \$ git push origin --delete <branch-name>}
+
+\item Moves the (entire) current branch to begin on the tip of {\tt <branch>}, incorporating all new commits in {\tt <branch>} by rewrites history.\\
+\textbf{{\tt[!]} Never rebase commits outside your repo where people may have work on.}\\
+{\tt \$ git rebase <branch>}
+
+Or interactively from two commits before {\tt HEAD}:\\
+{\tt \$ git rebase -i HEAD$\sim$2}
+
+\hr
+
+\item Hide changes but keep them (even between branches).\\
+{\tt \$ git stash save "<message>"}
+
+\item Show list of stashed changes.\\
+{\tt \$ git stash list}
+
+\item Get back certain stashed changes (does not remove the stash).\\
+{\tt \$ git stash apply stash@\{0\}}
+
+\item Get back the most recent stashed changes (removes the stash).\\
+{\tt \$ git stash pop}
+
+\item Remove a stash.\\
+{\tt \$ git stash drop stash@\{3\}}
+
+\item Remove all stashes.\\
+{\tt \$ git stash clear}
+
+
+\end{itemize}    

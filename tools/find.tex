@@ -1,0 +1,47 @@
+\nc{find}
+General syntax for {\tt find} is:\\
+{\tt find [options] [path] [expression]}
+
+\begin{itemize}[label={-}, leftmargin=*]
+
+    \item Find file by name.\\
+    {\tt \$ find <directory> -type f -name <file>}
+    
+    \item Find file by case insensiive name.\\
+    {\tt \$ find <directory> -type f -iname <file>}
+    
+    \item Find file by extension.\\
+    {\tt \$ find <directory> -type f -name "*.pdf"}
+    
+    \item Find all files not matching name/extension.\\
+    {\tt \$ find <directory> -type f -not -name "*.pdf"}
+    
+    \item Find files by type.\\
+    {\tt \$ find <directory> -type [f/d/l/c/b/p/s]}
+    
+    \item Find files by size.\\
+    {\tt \$ find <directory> -size [+/-]<size>[b/c/w/k/M/G]}
+    
+    \item Find files by modification date (in the last five days).\\
+    {\tt \$ find <directory> -mtime 5}\\
+    (30 days ago or more.)\\
+    {\tt \$ find <directory> -mtime +30 -daystart}
+    
+    \item Find files by permission.\\
+    {\tt \$ find <directory> -perm [/,-]<code>}
+    
+    \item Find files by user.\\
+    {\tt \$ find <directory> -user <name>}
+    
+    \item Find and delete files.\\
+    {\tt \$ find <directory> -name `*.pdf' -delete}
+    
+    \item Find and run commands The {\tt\{\}} is the output's placeholder.\\
+    {\tt \$ find <directory> -name `*.pdf' -exec cat \{\} \textbackslash;}
+    
+    
+    
+    
+    
+    
+\end{itemize}    
